@@ -1,0 +1,33 @@
+{
+  "name": "recruitment-task",
+  "version": "1.0.0",
+  "description": "recruitment-task",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --open --hot --mode development",
+    "build": "webpack --mode production"
+ },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SzymonCzapkowski/recruitment-task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SzymonCzapkowski/recruitment-task/issues"
+  },
+  "homepage": "https://github.com/SzymonCzapkowski/recruitment-task#readme"
+}
