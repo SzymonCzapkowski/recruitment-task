@@ -1,8 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { GlobalStyles } from './GlobalStyles';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import MainPage from './components/MainPage/MainPage';
+
 
 const App = () => {
-  return <div>Hello React,Webpack 4 & Babel 7!</div>;
-};
+  return (
+  <>
+    <GlobalStyles />
+    <Router>
+    <Header />
+      <Switch>
+        <Route exact path="/" component={MainPage} />      
+      </Switch>
+    <Footer />
+    </Router>  
+  </>
+  );
+}
 
 ReactDOM.render(<App />, document.querySelector("#root"));
