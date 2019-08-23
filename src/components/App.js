@@ -1,23 +1,22 @@
 import React from 'react';
-//import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { GlobalStyles } from './GlobalStyles';
-//import { Header } from './Header/Header';
-// import Footer from './Footer/Footer';
-// import MainPage from './MainPage/MainPage';
+import  Header from './Header/Header.jsx';
+import Footer from './Footer/Footer.jsx';
+import MainPage from './MainPage/MainPage.jsx';
 
 
 function App() {
   return (
   <>
     <GlobalStyles />
-    {/* <Header /> */}
-    {/* <Router>
-    
+    <Router>
+      <Header />
       <Switch>
         <Route exact path="/" component={MainPage} />      
       </Switch>
     <Footer />
-    </Router>   */}
+    </Router>  
   </>
   );
 }
