@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "recruitment-task",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "styled-components": "^4.3.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
