@@ -5,7 +5,7 @@ const Footer = () => {
 
     return (
         <FooterContainer>
-               
+            COPYRIGHT© 2019 MIRUMEE SOFTWARE
         </FooterContainer>
     );
 
