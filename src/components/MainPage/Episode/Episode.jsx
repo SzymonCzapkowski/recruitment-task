@@ -1,15 +1,69 @@
 import React from 'react';
-import { EpisodeContainer } from './EpisodeStyles';
+import { EpisodeContainer, EpisodeTask, EpisodeOpen } from './EpisodeStyles';
+import ARROWOPEN from '../../../Assets/ARROW OPEN.jsx';
+import ARROWCLOSE from '../../../Assets/ARROW CLOSE.jsx';
 
+class Episode extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state = { isOpened : false };
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+    };
 
-const Episode = () => {
+    open()
+    {
+        if(!this.state.isOpened){
+        this.setState({ isOpened: true })
+        console.log("open");
+        }
+    };
 
+    close()
+    {
+        this.setState({ isOpened: false })
+        console.log("close");
+    };
+
+    render(){
     return (
-        <EpisodeContainer>
-         
-        </EpisodeContainer>        
+    <EpisodeContainer>
+        <EpisodeTask> <p>Episode Name</p>                
+            <div className="arrows">
+                { this.state.isOpened ? null: <div onClick={this.open}><ARROWOPEN/></div>}
+                { this.state.isOpened ? <div onClick={this.close}><ARROWCLOSE/></div> :null}
+            </div>
+        </EpisodeTask>
+        { this.state.isOpened ?
+        <EpisodeOpen>
+            <table>
+            <tbody>
+                <tr>
+                    <th>Planet Name</th>
+                    <th>Rotation period</th> 
+                    <th>Orbital period</th>
+                    <th>Diameter</th>
+                    <th>Climate</th>
+                    <th>Surface wate</th>
+                    <th>Population</th>
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td> 
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                </tr>
+            </tbody>
+            </table>                        
+        </EpisodeOpen>
+        :null }              
+    </EpisodeContainer>        
     );
+}
 }
 
 export default Episode;

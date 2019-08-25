@@ -1,64 +1,76 @@
 import React from 'react';
-import { AddContainer, AddStrap, Open, AddButton } from './AddStyles';
+import { AddContainer, AddStrap, AddOpen, AddButton } from './AddStyles';
 import ARROWOPEN from '../../Assets/ARROW OPEN.jsx'
-import ARROWClOSE from '../../Assets/ARROW ClOSE.jsx'
+import ARROWCLOSE from '../../Assets/ARROW CLOSE.jsx'
 import SEARCH from '../../Assets/SEARCH.jsx'
 
 
-const Add = () => {
+class Add extends React.Component {
     
-    // constructor(state) 
-    // {
-    //     this.state = {
-    //         isDetailsDisplayed : false,
-    //         status: this.props.status
-    //     };
-    //     this.showDetails = this.showDetails.bind(this);
-    //     this.hideDetails = this.hideDetails.bind(this);
-    // };
+    constructor(props){
+        super(props);
+        this.state = { 
+            isOpened : false,
+            title:'',
+            planet:'',
+        };
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+    };
 
-    // showDetails()
-    // {
-    //     if(!this.state.isDetailsDisplayed){
-    //     this.setState({ isDetailsDisplayed: true });
-    //     }
-    // };
+    open()
+    {
+        if(!this.state.isOpened){
+        this.setState({ isOpened: true })        
+        }
+    };
 
-    // hideDetails()
-    // {
-    //     this.setState({ isDetailsDisplayed: false })
-    // };
+    close()
+    {
+        this.setState({ isOpened: false })
+        
+    };
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        const {title, planet} = this.state;
+    };
+
+    
+    render() {
     return (
+        
     <AddContainer>        
-        <AddStrap> <p>Add Movie</p>
-            
+        <AddStrap> <p>Add Movie</p>            
             <div className="arrows">
-                <ARROWOPEN/>
-                <ARROWClOSE />
+                { this.state.isOpened ? null: <div onClick={this.open}><ARROWOPEN/></div>}
+                { this.state.isOpened ? <div onClick={this.close}><ARROWCLOSE/></div> :null}
             </div>
         </AddStrap>
-        <Open>
-            <div className="addDivContainer">
-                <div className="addDiv" >
+        { this.state.isOpened ?
+        <AddOpen>
+            <div className="addDivContainer" onSubmit={this.onSubmit}>
+                <form className="addDiv" >
                     <p>Movie Title</p>
-                    <input className="addInput" placeholder="Please enter the tittle of the movie" />           
-                </div>
-                <div className="addDiv">
+                    <input className="addInput" name="title" value={title} placeholder="Please enter the tittle of the movie" />           
+                </form>
+                <form className="addDiv">
                     <p>Add Planet</p>
-                    <input className="addInput" placeholder="Search for the the planet in database" />
+                    <input className="addInput" name="planet" value={planet} placeholder="Search for the the planet in database" />
                     <button>
                         <SEARCH/>
                     </button>
-                </div>
+                </form>
             </div>
-            <AddButton>
+            <AddButton onSubmit={this.onSubmit}>
                 ADD MOVIE
             </AddButton>            
-        </Open>             
+        </AddOpen> 
+        :null }             
         
     </AddContainer>
     );
+}
 }
 
 export default Add;
