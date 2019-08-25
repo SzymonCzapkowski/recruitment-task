@@ -30,12 +30,6 @@ class Add extends React.Component {
         this.setState({ isOpened: false })
         
     };
-
-    onSubmit = (e) => {
-        e.preventDefault();
-        const {title, planet} = this.state;
-    };
-
     
     render() {
     return (
@@ -52,17 +46,17 @@ class Add extends React.Component {
             <div className="addDivContainer" onSubmit={this.onSubmit}>
                 <form className="addDiv" >
                     <p>Movie Title</p>
-                    <input className="addInput" name="title" value={title} placeholder="Please enter the tittle of the movie" />           
+                    <input className="addInput" placeholder="Please enter the tittle of the movie" />           
                 </form>
                 <form className="addDiv">
                     <p>Add Planet</p>
-                    <input className="addInput" name="planet" value={planet} placeholder="Search for the the planet in database" />
+                    <input className="addInput"  placeholder="Search for the the planet in database" />
                     <button>
                         <SEARCH/>
                     </button>
                 </form>
             </div>
-            <AddButton onSubmit={this.onSubmit}>
+            <AddButton>
                 ADD MOVIE
             </AddButton>            
         </AddOpen> 
