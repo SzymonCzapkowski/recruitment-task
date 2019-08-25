@@ -1,76 +1,64 @@
 import React from 'react';
-import { AddContainer, AddStrap, AddOpen, AddButton } from './AddStyles';
+import { AddContainer, AddStrap, Open, AddButton } from './AddStyles';
 import ARROWOPEN from '../../Assets/ARROW OPEN.jsx'
-import ARROWCLOSE from '../../Assets/ARROW CLOSE.jsx'
+import ARROWClOSE from '../../Assets/ARROW ClOSE.jsx'
 import SEARCH from '../../Assets/SEARCH.jsx'
 
 
-class Add extends React.Component {
+const Add = () => {
     
-    constructor(props){
-        super(props);
-        this.state = { 
-            isOpened : false,
-            title:'',
-            planet:'',
-        };
-        this.open = this.open.bind(this);
-        this.close = this.close.bind(this);
-    };
+    // constructor(state) 
+    // {
+    //     this.state = {
+    //         isDetailsDisplayed : false,
+    //         status: this.props.status
+    //     };
+    //     this.showDetails = this.showDetails.bind(this);
+    //     this.hideDetails = this.hideDetails.bind(this);
+    // };
 
-    open()
-    {
-        if(!this.state.isOpened){
-        this.setState({ isOpened: true })        
-        }
-    };
+    // showDetails()
+    // {
+    //     if(!this.state.isDetailsDisplayed){
+    //     this.setState({ isDetailsDisplayed: true });
+    //     }
+    // };
 
-    close()
-    {
-        this.setState({ isOpened: false })
-        
-    };
+    // hideDetails()
+    // {
+    //     this.setState({ isDetailsDisplayed: false })
+    // };
 
-    onSubmit = (e) => {
-        e.preventDefault();
-        const {title, planet} = this.state;
-    };
-
-    
-    render() {
     return (
-        
     <AddContainer>        
-        <AddStrap> <p>Add Movie</p>            
+        <AddStrap> <p>Add Movie</p>
+            
             <div className="arrows">
-                { this.state.isOpened ? null: <div onClick={this.open}><ARROWOPEN/></div>}
-                { this.state.isOpened ? <div onClick={this.close}><ARROWCLOSE/></div> :null}
+                <ARROWOPEN/>
+                <ARROWClOSE />
             </div>
         </AddStrap>
-        { this.state.isOpened ?
-        <AddOpen>
-            <div className="addDivContainer" onSubmit={this.onSubmit}>
-                <form className="addDiv" >
+        <Open>
+            <div className="addDivContainer">
+                <div className="addDiv" >
                     <p>Movie Title</p>
-                    <input className="addInput" name="title" value={title} placeholder="Please enter the tittle of the movie" />           
-                </form>
-                <form className="addDiv">
+                    <input className="addInput" placeholder="Please enter the tittle of the movie" />           
+                </div>
+                <div className="addDiv">
                     <p>Add Planet</p>
-                    <input className="addInput" name="planet" value={planet} placeholder="Search for the the planet in database" />
+                    <input className="addInput" placeholder="Search for the the planet in database" />
                     <button>
                         <SEARCH/>
                     </button>
-                </form>
+                </div>
             </div>
-            <AddButton onSubmit={this.onSubmit}>
+            <AddButton>
                 ADD MOVIE
             </AddButton>            
-        </AddOpen> 
-        :null }             
+        </Open>             
         
     </AddContainer>
     );
-}
 }
 
 export default Add;

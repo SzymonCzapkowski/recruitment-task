@@ -36,7 +36,7 @@ export const AddStrap = styled.div`
     }
 `
 
-export const AddOpen = styled.div`    
+export const Open = styled.div`    
     background: #FFFFFF;
     box-shadow: 0px 2px 1px rgba(196, 196, 196, 0.2);
     height: auto;
@@ -80,9 +80,7 @@ export const AddOpen = styled.div`
     
     button{
         position: absolute;
-        transform:translateX(-33px) translateY(10px);
-        background:transparent;
-        border:none;
+        transform:translateX(-33px) translateY(10px)
 
     }
 `
