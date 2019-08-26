@@ -56,7 +56,7 @@ class Add extends React.Component {
     render() {
     return (
     <>
-    <ul>
+    <ul style={{ padding: 0 }}>
     {this.state.list.map( item => {
         return(
         <li style={{ listStyleType: "none" }} key={item.id}><Episode key={item.id}>
@@ -66,11 +66,9 @@ class Add extends React.Component {
     })}
     </ul>   
     <AddContainer>        
-        <AddStrap> <p>Add Movie</p>            
-            <div className="arrows">
+        <AddStrap> <p>Add Movie</p>         
                 { this.state.isOpened ? null: <div onClick={this.open}><ARROWOPEN/></div>}
                 { this.state.isOpened ? <div onClick={this.close}><ARROWCLOSE/></div> :null}
-            </div>
         </AddStrap>
         { this.state.isOpened ?
         <AddOpen>

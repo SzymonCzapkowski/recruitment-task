@@ -30,10 +30,8 @@ class Episode extends React.Component {
     return (
     <EpisodeContainer>
         <EpisodeTask> <p>Episode Name</p>                
-            <div className="arrows">
                 { this.state.isOpened ? null: <div onClick={this.open}><ARROWOPEN/></div>}
                 { this.state.isOpened ? <div onClick={this.close}><ARROWCLOSE/></div> :null}
-            </div>
         </EpisodeTask>
         { this.state.isOpened ?
         <EpisodeOpen>
